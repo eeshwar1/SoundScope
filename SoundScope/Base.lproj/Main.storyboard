@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SoundScope" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,8 +684,8 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="SoundScope" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -703,15 +704,185 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SoundScope" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="579" height="577"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="equalSpacing" orientation="vertical" alignment="centerX" spacing="42" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFz-Fx-f3x">
+                                <rect key="frame" x="10" y="10" width="559" height="557"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="999" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uUJ-Fh-dK7">
+                                        <rect key="frame" x="112" y="439" width="335" height="118"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="749" constant="400" id="2eE-pv-MZC"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="000.00" id="Q5T-Mb-oEE">
+                                            <font key="font" metaFont="system" size="100"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="equalSpacing" orientation="vertical" alignment="centerX" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kDg-2G-DCr">
+                                        <rect key="frame" x="10" y="173" width="539" height="200"/>
+                                        <subviews>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2gA-mM-Ccl">
+                                                <rect key="frame" x="146" y="181" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="z7t-4P-eIv">
+                                                <rect key="frame" x="146" y="161" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="LcE-dM-RfW">
+                                                <rect key="frame" x="146" y="141" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="tjC-Qa-OAa">
+                                                <rect key="frame" x="146" y="121" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="O27-f0-7Gv">
+                                                <rect key="frame" x="146" y="100" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Sdq-bt-B0R">
+                                                <rect key="frame" x="146" y="80" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="FEn-rS-N79">
+                                                <rect key="frame" x="146" y="60" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="yGZ-i5-3SO">
+                                                <rect key="frame" x="146" y="40" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="IxU-bw-AEk">
+                                                <rect key="frame" x="146" y="20" width="247" height="20"/>
+                                            </progressIndicator>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="HaR-Wh-ko5">
+                                                <rect key="frame" x="146" y="-1" width="247" height="20"/>
+                                            </progressIndicator>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="6fk-FL-Agx"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sjR-uc-kln">
+                                        <rect key="frame" x="210" y="80" width="139" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Start Monitoring" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dwD-7n-075">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="monitorAudio:" target="XfG-lQ-9wD" id="gzo-Lb-dJ0"/>
+                                        </connections>
+                                    </button>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="42" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Dq-94-a6E">
+                                        <rect key="frame" x="147" y="0.0" width="266" height="21"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rg7-Dv-VTw">
+                                                <rect key="frame" x="-6" y="-7" width="66" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Play" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gWm-VH-DlR">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="play:" target="XfG-lQ-9wD" id="Zrp-tr-9oM"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EGg-vv-gga">
+                                                <rect key="frame" x="90" y="-7" width="69" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="H51-CY-h29">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="stop:" target="XfG-lQ-9wD" id="qkc-1h-RqT"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-4B-TmL">
+                                                <rect key="frame" x="189" y="-7" width="83" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Record" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bs0-pa-FcW">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="record:" target="XfG-lQ-9wD" id="Sgx-7j-VmW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kDg-2G-DCr" secondAttribute="trailing" constant="10" id="LN9-fY-sjJ"/>
+                                    <constraint firstItem="kDg-2G-DCr" firstAttribute="leading" secondItem="cFz-Fx-f3x" secondAttribute="leading" constant="10" id="SH2-y4-1cL"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="cFz-Fx-f3x" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="458-pv-ICe"/>
+                            <constraint firstAttribute="trailing" secondItem="cFz-Fx-f3x" secondAttribute="trailing" constant="10" id="Pqm-Rz-R4E"/>
+                            <constraint firstAttribute="bottom" secondItem="cFz-Fx-f3x" secondAttribute="bottom" constant="10" id="ROA-UJ-kTE"/>
+                            <constraint firstItem="cFz-Fx-f3x" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="yyb-8Y-HkV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelLevel" destination="uUJ-Fh-dK7" id="mJC-Fp-QpF"/>
+                        <outlet property="progressLevel1" destination="2gA-mM-Ccl" id="DOc-7A-wkU"/>
+                        <outlet property="progressLevel10" destination="HaR-Wh-ko5" id="oeH-WW-6mo"/>
+                        <outlet property="progressLevel2" destination="z7t-4P-eIv" id="2Su-2d-n5G"/>
+                        <outlet property="progressLevel3" destination="LcE-dM-RfW" id="rs0-Z8-daA"/>
+                        <outlet property="progressLevel4" destination="tjC-Qa-OAa" id="NUG-Bb-aBf"/>
+                        <outlet property="progressLevel5" destination="O27-f0-7Gv" id="Wx7-Zb-IRg"/>
+                        <outlet property="progressLevel6" destination="Sdq-bt-B0R" id="lK8-aT-gGQ"/>
+                        <outlet property="progressLevel7" destination="FEn-rS-N79" id="e4K-Tf-ELk"/>
+                        <outlet property="progressLevel8" destination="yGZ-i5-3SO" id="R3I-5g-hFs"/>
+                        <outlet property="progressLevel9" destination="IxU-bw-AEk" id="nhh-Sa-den"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="124.5" y="751.5"/>
         </scene>
     </scenes>
 </document>
